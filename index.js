@@ -25,14 +25,15 @@ const server = createServer((req, res) => {
       .then(() => fileReadPool.terminate());
   } else if (req.url === "/about") {
     // read file and send it
-    fileReadPool
-      .exec("html", ["about.html"])
-      .then((result) => res.end(result))
-      .catch((err) => {
-        error(err);
-        res.end();
-      })
-      .then(() => fileReadPool.terminate());
+    res.end("<h1>Amila</h1>");
+    // fileReadPool
+    //   .exec("html", ["about.html"])
+    //   .then((result) => res.end(result))
+    //   .catch((err) => {
+    //     error(err);
+    //     res.end();
+    //   })
+    //   .then(() => fileReadPool.terminate());
   }
 });
 
